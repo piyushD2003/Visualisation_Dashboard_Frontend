@@ -38,7 +38,7 @@ const useApiStore = create((set,get) => ({
             console.log(queryString);
             
             const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getIntensity&${queryString}`);
-            // const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getIntensity&records_number=90&page=1`);
+            // const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getIntensity&records_number=90&page=1`);
             
             set({ data: response.data.data, loading: false });
             return response.data;
@@ -65,7 +65,7 @@ const useApiStore = create((set,get) => ({
 
     fetchOverview: async()=>{
         try {
-            const response = await axios.get('http://127.0.0.1:8000/data/dashboard/?action=getOverview');
+            const response = await axios.get('https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getOverview');
             console.log(response.data);
             
             set({ overviewdata: response.data, loading: false });
@@ -82,7 +82,7 @@ const useApiStore = create((set,get) => ({
         const queryString = new URLSearchParams(selectedFilters).toString();
         // set((state) => ({ topicDistributionState: ...state.topicDistributionState}));
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getTopicDistribution&${queryString}`);
+            const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getTopicDistribution&${queryString}`);
             console.log("Fetching Topic Distribution:", response.data);
 
             set({topicDistributionState: response.data});
@@ -101,7 +101,7 @@ const useApiStore = create((set,get) => ({
         const queryString = new URLSearchParams(selectedFilters).toString();
         set((state) => ({ trendsOverYearsState: { ...state.trendsOverYearsState, loading: true } }));
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getTrendsOverYears&${queryString}`);
+            const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getTrendsOverYears&${queryString}`);
             console.log("Fetching Topic Distribution:", response.data);
 
             set({ trendsOverYearsState: { data: response.data, loading: false } });
@@ -119,7 +119,7 @@ const useApiStore = create((set,get) => ({
         const { selectedFilters } = get();
         const queryString = new URLSearchParams(selectedFilters).toString();
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getWorldMapData&${queryString}`);
+            const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getWorldMapData&${queryString}`);
             console.log(response.data.data);
             
             set({ worldMapData: response.data.data });
@@ -136,7 +136,7 @@ const useApiStore = create((set,get) => ({
             const { selectedFilters } = get();
             const queryString = new URLSearchParams(selectedFilters).toString();
 
-            const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getBubbleChartData&${queryString}`);  // Replace with your actual endpoint
+            const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getBubbleChartData&${queryString}`);  // Replace with your actual endpoint
             set({ bubbleChartData: response.data.data, loading: false });
             return response.data;
         } catch (error) {
