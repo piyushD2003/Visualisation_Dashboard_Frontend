@@ -37,7 +37,7 @@ const useApiStore = create((set,get) => ({
             const queryString = new URLSearchParams(selectedFilters).toString();
             console.log(queryString);
             
-            const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getIntensity&${queryString}`);
+            const response = await axios.get(`https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getIntensity&${queryString}`);
             // const response = await axios.get(`http://127.0.0.1:8000/data/dashboard/?action=getIntensity&records_number=90&page=1`);
             
             set({ data: response.data.data, loading: false });

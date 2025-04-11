@@ -20,7 +20,7 @@ const useFilterStore = create((set) => ({
     fetchFilters: async () => {
         set({ loading: true });
         try {
-            const response = await axios.get("http://127.0.0.1:8000/data/dashboard/?action=getFilter");
+            const response = await axios.get("https://visualisation-dashboard-backend.vercel.app/data/dashboard/?action=getFilter");
             console.log(response.data);
             
             set({ filters: response.data, loading: false });
