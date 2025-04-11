@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Chart } from 'react-chartjs-2';
-import {Chart as ChartJS ,CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import {Chart as ChartJS ,BubbleController,CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import useApiStore from "../store/apiStore";
 import useFilterStore from "../store/filterStore";
 import Navtab from "./Navtab";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale,BubbleController, LinearScale, PointElement, Title, Tooltip, Legend);
 
 const BubbleChart = ({ detailedView = false }) => {
     const [chartData, setChartData] = useState(null);
