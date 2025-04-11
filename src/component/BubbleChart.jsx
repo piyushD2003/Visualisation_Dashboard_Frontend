@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Chart, Bubble } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 import {Chart as ChartJS ,CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import useApiStore from "../store/apiStore";
 import useFilterStore from "../store/filterStore";
